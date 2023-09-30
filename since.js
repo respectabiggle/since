@@ -37,14 +37,13 @@ let sinceTest = async function() {
 	// foo		= await pro.fetchOrders(symbol, since = 1514764800000)					
 	// foo		= await pro.fetchOrders('ETH/USD', since = 1514764800000)				
 	// foo		= await pro.fetchOrders('ETH/USD', 1514764800000)						
-	// foo		= await pro.fetchOrders('ETH/USD', params)								
-
+						
 	// foo		= await pro.fetchOrders(symbol, until)									
 	// foo		= await pro.fetchOrders('ETH/USD', until)								
 	// foo		= await pro.fetchOrders(symbol, until = 1514764800000)					
 	// foo		= await pro.fetchOrders('ETH/USD', until = 1514764800000)				
 	// foo		= await pro.fetchOrders('ETH/USD', 1514764800000)						 
-	// foo		= await pro.fetchOrders('ETH/USD', params)							
+						
 
 
 
