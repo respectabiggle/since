@@ -67,4 +67,4 @@ sinceTest()
 
 
 // Node.js 	19.3.0
-// ccxt		4.0.109
+// ccxt		4.0.111
