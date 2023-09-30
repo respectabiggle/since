@@ -22,6 +22,7 @@ let sinceTest = async function() {
 		symbol	= 'ETH/USD'
 	let	since	= pro.parse8601 ('2018-01-01T00:00:00Z')	
 		since	= 1514764800000		
+		since	= 1422377048000	// real date of early transaction
 	let	until	= pro.parse8601 ('2018-01-01T00:00:00Z')		
 		until	= 1514764800000	
 	let	params	= { since : 1514764800000, until : 1514764800000}
