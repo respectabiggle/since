@@ -19,11 +19,11 @@ let sinceTest = async function() {
 
 
 	let symbol	= undefined
-		symbol	= 'ETH/USD'
+	symbol	= 'ETH/USD'
 	let since	= pro.parse8601 ('2018-01-01T00:00:00Z')	
-		since	= 1514764800000		
+	since	= 1514764800000		
 	let until	= pro.parse8601 ('2018-01-01T00:00:00Z')		
-		until	= 1514764800000	
+	until	= 1514764800000	
 	let params	= { since : 1514764800000, until : 1514764800000}
 
 
