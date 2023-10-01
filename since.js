@@ -21,7 +21,7 @@ let sinceTest = async function() {
 	// let since	= 1422377048000		// real date of early transaction
 	
 	// Updated
-	let nd		= new Date(1690910729000)
+	let nd		= new Date(1690910729000) // '2023-08-01T17:25:29.000Z' Two Months Ago
 	let since	= pro.parse8601 (nd.toISOString())
 
 
@@ -47,6 +47,7 @@ let sinceTest = async function() {
 
 	// foo		= await pro.fetchMyTrades('ETH/USD')										
 	// foo		= await pro.fetchMyTrades('ETH/USD', since)									
+	// foo		= await pro.fetchMyTrades('ETH/USD', since, 10)									
 	// foo		= await pro.fetchMyTrades('ETH/USD', since = 1514764800000)					
 	
 	// foo		= await pro.fetchLedger('ETH')						
