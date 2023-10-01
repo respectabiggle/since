@@ -2,16 +2,11 @@ import { log }				from 'console'
 import { coinbasepro }			from 'ccxt'
 import { config }			from 'dotenv'	; config()	
 
-
-
 export let pro = new coinbasepro({
 	apiKey:		process.env.COINBASE_PRO_API_KEY,
 	secret:		process.env.COINBASE_PRO_SECRET,
 	password:	process.env.COINBASE_PRO_PASSWORD
 }) 
-
- 
-
 
 let sinceTest = async function() {
 
