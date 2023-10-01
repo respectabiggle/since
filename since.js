@@ -12,10 +12,8 @@ export let pro = new coinbasepro({
 
 let sinceTest = async function() {
 
-	let foo
-
-	let	symbol	= undefined
-		symbol	= 'ETH/USD'
+	// let	symbol	= undefined
+	// 	symbol	= 'ETH/USD'
 
 	// let	since	= pro.parse8601 ('2018-01-01T00:00:00Z')	
 	// let	since	= 1514764800000	// '2018-01-01T00:00:00Z'	
@@ -30,6 +28,7 @@ let sinceTest = async function() {
 	let 	since	= pro.parse8601 (nd.toISOString())
 
 
+	let foo
 	foo		= await pro.fetchOrders('ETH/USD', since, 10)
 
 	// foo		= await pro.fetchOrders(symbol, since)		
