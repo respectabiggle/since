@@ -8,6 +8,8 @@ export let pro = new coinbasepro({
 	password:	process.env.COINBASE_PRO_PASSWORD
 }) 
 
+
+
 let sinceTest = async function() {
 
 	let foo
