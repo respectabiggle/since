@@ -23,26 +23,14 @@ let sinceTest = async function() {
 	// let	since	= pro.parse8601 ('2018-01-01T00:00:00Z')	
 	// let	since	= 1514764800000	// '2018-01-01T00:00:00Z'	
 	// let	since	= 1422377048000	// real date of early transaction
-
-	// let	until	= pro.parse8601 ('2018-01-01T00:00:00Z')		
-	// let	until	= 1514764800000	
-
-	// let	params	= { since : 1514764800000, until : 1514764800000}
-
 	
-	// newer Attempts
+// newer Attempts
 	// let	since	= 1690910729000 // '2023-08-01T17:25:29.000Z' recent date for testing with limits
 	// let	string	= new Date(since).toISOString()
 	// 		since	= pro.parse8601 (string)
 
 	let 	nd		= new Date(1690910729000)
 	let 	since	= pro.parse8601 (nd.toISOString())
-
-
-
-
-
-
 
 
 	foo		= await pro.fetchOrders('ETH/USD', since, 10)
@@ -64,12 +52,9 @@ let sinceTest = async function() {
 	// foo		= await pro.fetchOrders('ETH/USD', 1514764800000)	 					 
 						
 
-
-
 	// foo		= await pro.fetchMyTrades('ETH/USD')										
 	// foo		= await pro.fetchMyTrades('ETH/USD', since)									
 	// foo		= await pro.fetchMyTrades('ETH/USD', since = 1514764800000)					
-	
 	
 	// foo		= await pro.fetchLedger('ETH')						
 	// foo		= await pro.fetchLedger('ETH', since)				
