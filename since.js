@@ -16,13 +16,13 @@ let sinceTest = async function() {
 	// 	symbol	= 'ETH/USD'
 
 	// Previous
-	// let	since	= pro.parse8601 ('2018-01-01T00:00:00Z')	
-	// let	since	= 1514764800000		// '2018-01-01T00:00:00Z'	
-	// let	since	= 1422377048000		// real date of early transaction
+	// let since	= pro.parse8601 ('2018-01-01T00:00:00Z')	
+	// let since	= 1514764800000		// '2018-01-01T00:00:00Z'	
+	// let since	= 1422377048000		// real date of early transaction
 	
 	// Updated
-	let 	nd	= new Date(1690910729000)
-	let 	since	= pro.parse8601 (nd.toISOString())
+	let nd	= new Date(1690910729000)
+	let since	= pro.parse8601 (nd.toISOString())
 
 
 	let foo
