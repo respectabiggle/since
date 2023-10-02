@@ -9,7 +9,7 @@ export let pro = new coinbasepro({
 }) 
 
 
-	let nd		= new Date(1695785075253) 			// '2023-09-27T03:24:35.253Z' <- date of a real transaction
+	let nd		= new Date(1695785075253) 				// '2023-09-27T03:24:35.253Z' <- date of a real transaction
 	let ns		= nd.toISOString()
 	let since	= pro.parse8601(ns)
 
@@ -25,8 +25,8 @@ let sinceTest = async function() {
 	console.log(myTradesWithLimit[0].datetime)				// <-- Broken: returned my 5th-most recent transaction
 
 
-	// console.log(myTradesNoLimit.length)						// <-- 33 transactions since this date
-	// console.log(myTradesWithLimit.length)					// <--  5 transactions as expected
+	// console.log(myTradesNoLimit.length)					// <-- 33 transactions since this date
+	// console.log(myTradesWithLimit.length)				// <--  5 transactions as expected
 
 
 
