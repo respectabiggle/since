@@ -16,7 +16,8 @@ export let pro = new coinbasepro({
 
 let sinceTest = async function() {
 
-	// Part 1:  
+
+	// Part 1:   
 	
 	// 'Since' works if you don't specify a limit.
 	let myTradesNoLimit	= await pro.fetchMyTrades('ETH/USD', since)	//  no limit is specfied; 'since' works
