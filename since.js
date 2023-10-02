@@ -52,7 +52,7 @@ let sinceTest = async function() {
 	let myTrades3YearsAgo	= await pro.fetchMyTrades('ETH/USD', since3)
 	
 	// console.log(myTrades3YearsAgo.length)				// <-- 1000 transactions 
-	console.log(myTrades3YearsAgo[myTrades3YearsAgo.length -1].datetime)	// <-- '2023-10-01T17:47:02.831Z', today
+	// console.log(myTrades3YearsAgo[myTrades3YearsAgo.length -1].datetime)	// <-- '2023-10-01T17:47:02.831Z', today
 
 
 
