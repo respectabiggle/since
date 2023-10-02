@@ -40,7 +40,7 @@ let sinceTest = async function() {
 	
 	// 'since' works with old dates, as long at there are less than 1000 results returned
 	let dateTwoYearsAgo	= new Date(Date.now() - (2 * 12 * 30.43 * 24 * 60 * 60 * 1000))
-	let since2			= pro.parse8601(dateTwoYearsAgo.toISOString())
+	let since2		= pro.parse8601(dateTwoYearsAgo.toISOString())
 	let myTradesTwoYearsAgo = await pro.fetchMyTrades('ETH/USD', since2)
 	
 	// console.log(myTradesTwoYearsAgo.length)				// <--  765 transactions 
