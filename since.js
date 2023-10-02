@@ -1,4 +1,4 @@
-import { log }				from 'console'
+
 import { coinbasepro }			from 'ccxt'
 import { config }			from 'dotenv'	; config()	
 
@@ -9,62 +9,29 @@ export let pro = new coinbasepro({
 }) 
 
 
+	let nd		= new Date(1695785075253) 			// '2023-09-27T03:24:35.253Z' <- date of a real transaction
+	let ns		= nd.toISOString()
+	let since	= pro.parse8601(ns)
+
 
 let sinceTest = async function() {
 
-	// let	symbol	= undefined
-	// 	symbol	= 'ETH/USD'
 
-	// Previous
-	// let since	= pro.parse8601 ('2018-01-01T00:00:00Z')	
-	// let since	= 1514764800000		// '2018-01-01T00:00:00Z'	
-	// let since	= 1422377048000		// real date of early transaction
-	
-	// Updated
-	let nd		= new Date(1690910729000) // '2023-08-01T17:25:29.000Z' Two Months Ago
-	let since	= pro.parse8601 (nd.toISOString())
+	let myTradesNoLimit		= await pro.fetchMyTrades('ETH/USD', since)		// When no limit is specfied, 'since' works
+	let myTradesWithLimit	= await pro.fetchMyTrades('ETH/USD', since, 5)	// When a limit is specified, 'since' no longer works
 
-
-	let foo
-	foo		= await pro.fetchOrders('ETH/USD', since, 10)
-
-	// foo		= await pro.fetchOrders(symbol, since)		
-	// foo		= await pro.fetchOrders('ETH/USD', since)
-	// foo		= await pro.fetchOrders(symbol, since, 1000)	
-	// foo		= await pro.fetchOrders('ETH/USD', since, 1000)			 
-
-	// foo		= await pro.fetchOrders(symbol, 1514764800000)							
-	// foo		= await pro.fetchOrders('ETH/USD', 1514764800000)			
-	// foo		= await pro.fetchOrders(symbol, since = 1514764800000)					 
-	// foo		= await pro.fetchOrders('ETH/USD', since = 1514764800000)				 
-
-	// foo		= await pro.fetchOrders(symbol, until)									
-	// foo		= await pro.fetchOrders('ETH/USD', until)								
-	// foo		= await pro.fetchOrders(symbol, until = 1514764800000)					
-	// foo		= await pro.fetchOrders('ETH/USD', until = 1514764800000)		 		
-	// foo		= await pro.fetchOrders('ETH/USD', 1514764800000)	 					 
-						
-
-	// foo		= await pro.fetchMyTrades('ETH/USD')										
-	// foo		= await pro.fetchMyTrades('ETH/USD', since)									
-	// foo		= await pro.fetchMyTrades('ETH/USD', since, 10)									
-	// foo		= await pro.fetchMyTrades('ETH/USD', since = 1514764800000)					
-	
-	// foo		= await pro.fetchLedger('ETH')						
-	// foo		= await pro.fetchLedger('ETH', since)				
-		
-
-	log(foo[0].datetime) 
-	// log(foo.length) 
+	console.log(ns) 								// <-- ISO format of 'since'
+	console.log(myTradesNoLimit[0].datetime)		// <-- Correct: first transaction returned is same as 'since' sate  
+	console.log(myTradesWithLimit[0].datetime)		// <-- Broken: returned my 5th-most recent transaction
 
 
 
-	// Works, credit to @Aten
-	// const someTimeAgo = new Date(Date.now() - (240 * 60 * 60 * 1000))
-	// since = pro.parse8601(someTimeAgo.toISOString())
-	// const btc_ohlcv = await pro.fetch_ohlcv('BTC/USDT', '1m', someTimeAgo.getTime())
-	// let btcDate = new Date(btc_ohlcv[0][0])
-	// log(someTimeAgo, btcDate)
+	// FWIW:  Same results with fetchOrders
+	// let ordersNoLimit	= await pro.fetchOrders('ETH/USD', since)	
+	// let ordersWithLimit	= await pro.fetchOrders('ETH/USD', since, 5)	
+	// console.log(ns)
+	// console.log(ordersNoLimit[0].datetime)
+	// console.log(ordersWithLimit[0].datetime)
 
 
 }
