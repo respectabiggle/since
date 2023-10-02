@@ -17,26 +17,48 @@ export let pro = new coinbasepro({
 let sinceTest = async function() {
 
 
-	let myTradesNoLimit	= await pro.fetchMyTrades('ETH/USD', since)	// When no limit is specfied, 'since' works
-	let myTradesWithLimit	= await pro.fetchMyTrades('ETH/USD', since, 5)	// When a limit is specified, 'since' no longer works
+	// let myTradesNoLimit	= await pro.fetchMyTrades('ETH/USD', since)	// When no limit is specfied, 'since' works
+	// let myTradesWithLimit	= await pro.fetchMyTrades('ETH/USD', since, 5)	// When a limit is specified, 'since' no longer works
 
-	console.log(ns) 							// <-- ISO format of 'since'
-	console.log(myTradesNoLimit[0].datetime)				// <-- Correct: first transaction returned is same as 'since' date  
-	console.log(myTradesWithLimit[0].datetime)				// <-- Broken: returned my 5th-most recent transaction
+	// console.log(ns) 							// <-- ISO format of 'since'
+	// console.log(myTradesNoLimit[0].datetime)				// <-- Correct: first transaction returned is same as 'since' date  
+	// console.log(myTradesWithLimit[0].datetime)				// <-- Broken: returned my 5th-most recent transaction
+
+	// // console.log(myTradesNoLimit.length)					// <--   33 transactions since this date
+	// // console.log(myTradesWithLimit.length)				// <--    5 transactions as expected
+
+	// // FWIW:  Same results with fetchOrders
+	// // let ordersNoLimit	= await pro.fetchOrders('ETH/USD', since)	
+	// // let ordersWithLimit	= await pro.fetchOrders('ETH/USD', since, 5)	
+	// // console.log(ns)
+	// // console.log(ordersNoLimit[0].datetime)
+	// // console.log(ordersWithLimit[0].datetime)
 
 
-	// console.log(myTradesNoLimit.length)					// <-- 33 transactions since this date
-	// console.log(myTradesWithLimit.length)				// <--  5 transactions as expected
+
+	// Part 2:  
+	
+	// 'since' works with old dates, as long at there are less than 1000 results returned
+	let dateTwoYearsAgo	= new Date(Date.now() - (2 * 12 * 30.43 * 24 * 60 * 60 * 1000))
+	let since2			= pro.parse8601(dateTwoYearsAgo.toISOString())
+	let myTradesTwoYearsAgo = await pro.fetchMyTrades('ETH/USD', since2)
+	
+	// console.log(myTradesTwoYearsAgo.length)				// <--  765 transactions 
+	// console.log(myTradesTwoYearsAgo[0].datetime)			// <--  '2021-12-29T03:09:26.037Z'
+
+	// If there are more than 1000 results, 
+	let dateThreeYearsAgo	= new Date(Date.now() - (2 * 12 * 30.43 * 24 * 60 * 60 * 1000))
+	let since3			= pro.parse8601(dateThreeYearsAgo.toISOString())
+	let myTradesThreeYearsAgo = await pro.fetchMyTrades('ETH/USD', since3)
+	
+	// console.log(myTradesThreeYearsAgo.length)				// <-- 1000 transactions 
+	console.log(myTradesThreeYearsAgo[myTradesThreeYearsAgo.length -1].datetime)			// <-- '2023-10-01T17:47:02.831Z', today
 
 
 
 
-	// FWIW:  Same results with fetchOrders
-	// let ordersNoLimit	= await pro.fetchOrders('ETH/USD', since)	
-	// let ordersWithLimit	= await pro.fetchOrders('ETH/USD', since, 5)	
-	// console.log(ns)
-	// console.log(ordersNoLimit[0].datetime)
-	// console.log(ordersWithLimit[0].datetime)
+
+
 
 
 }
