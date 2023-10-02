@@ -44,7 +44,7 @@ let sinceTest = async function() {
 	let myTradesTwoYearsAgo = await pro.fetchMyTrades('ETH/USD', since2)
 	
 	// console.log(myTradesTwoYearsAgo.length)				// <--  765 transactions 
-	// console.log(myTradesTwoYearsAgo[0].datetime)			// <--  '2021-12-29T03:09:26.037Z'
+	// console.log(myTradesTwoYearsAgo[0].datetime)				// <--  '2021-12-29T03:09:26.037Z'
 
 	// If there are more than 1000 results, 
 	let dateThreeYearsAgo	= new Date(Date.now() - (2 * 12 * 30.43 * 24 * 60 * 60 * 1000))
