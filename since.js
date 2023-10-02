@@ -32,7 +32,7 @@ let sinceTest = async function() {
 	// let ordersWithLimit	= await pro.fetchOrders('ETH/USD', since, 5)	
 	// console.log(ns)
 	// console.log(ordersNoLimit[0].datetime)
-	// console.log(ordersWithLimit[0].datetime)
+	// console.log(ordersWithLimit[0].datetime) 
 
 
 
