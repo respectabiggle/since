@@ -21,8 +21,13 @@ let sinceTest = async function() {
 	let myTradesWithLimit	= await pro.fetchMyTrades('ETH/USD', since, 5)	// When a limit is specified, 'since' no longer works
 
 	console.log(ns) 								// <-- ISO format of 'since'
-	console.log(myTradesNoLimit[0].datetime)		// <-- Correct: first transaction returned is same as 'since' sate  
+	console.log(myTradesNoLimit[0].datetime)		// <-- Correct: first transaction returned is same as 'since' date  
 	console.log(myTradesWithLimit[0].datetime)		// <-- Broken: returned my 5th-most recent transaction
+
+
+	// console.log(myTradesNoLimit.length)			// <-- 33 transactions since this date
+	// console.log(myTradesWithLimit.length)		// <--  5 transactions as expected
+
 
 
 
