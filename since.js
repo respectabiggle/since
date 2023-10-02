@@ -17,22 +17,22 @@ export let pro = new coinbasepro({
 let sinceTest = async function() {
 
 
-	// let myTradesNoLimit	= await pro.fetchMyTrades('ETH/USD', since)	// When no limit is specfied, 'since' works
-	// let myTradesWithLimit	= await pro.fetchMyTrades('ETH/USD', since, 5)	// When a limit is specified, 'since' no longer works
+	let myTradesNoLimit	= await pro.fetchMyTrades('ETH/USD', since)	// When no limit is specfied, 'since' works
+	let myTradesWithLimit	= await pro.fetchMyTrades('ETH/USD', since, 5)	// When a limit is specified, 'since' no longer works
 
-	// console.log(ns) 							// <-- ISO format of 'since'
-	// console.log(myTradesNoLimit[0].datetime)				// <-- Correct: first transaction returned is same as 'since' date  
-	// console.log(myTradesWithLimit[0].datetime)				// <-- Broken: returned my 5th-most recent transaction
+	console.log(ns) 							// <-- ISO format of 'since'
+	console.log(myTradesNoLimit[0].datetime)				// <-- Correct: first transaction returned is same as 'since' date  
+	console.log(myTradesWithLimit[0].datetime)				// <-- Broken: returned my 5th-most recent transaction
 
-	// // console.log(myTradesNoLimit.length)					// <--   33 transactions since this date
-	// // console.log(myTradesWithLimit.length)				// <--    5 transactions as expected
+	// console.log(myTradesNoLimit.length)					// <--   33 transactions since this date
+	// console.log(myTradesWithLimit.length)				// <--    5 transactions as expected
 
-	// // FWIW:  Same results with fetchOrders
-	// // let ordersNoLimit	= await pro.fetchOrders('ETH/USD', since)	
-	// // let ordersWithLimit	= await pro.fetchOrders('ETH/USD', since, 5)	
-	// // console.log(ns)
-	// // console.log(ordersNoLimit[0].datetime)
-	// // console.log(ordersWithLimit[0].datetime)
+	// FWIW:  Same results with fetchOrders
+	// let ordersNoLimit	= await pro.fetchOrders('ETH/USD', since)	
+	// let ordersWithLimit	= await pro.fetchOrders('ETH/USD', since, 5)	
+	// console.log(ns)
+	// console.log(ordersNoLimit[0].datetime)
+	// console.log(ordersWithLimit[0].datetime)
 
 
 
