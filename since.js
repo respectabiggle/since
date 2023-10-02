@@ -9,9 +9,6 @@ export let pro = new coinbasepro({
 }) 
 
 
-	let nd		= new Date(1695785075253) 				// '2023-09-27T03:24:35.253Z' <- date of a real transaction
-	let ns		= nd.toISOString()
-	let since	= pro.parse8601(ns)
 
 
 let sinceTest = async function() {
@@ -20,6 +17,10 @@ let sinceTest = async function() {
 	// Part 1:   
 	
 	// 'Since' works if you don't specify a limit.
+	let nd		= new Date(1695785075253) 				// '2023-09-27T03:24:35.253Z' <- date of a real transaction
+	let ns		= nd.toISOString()
+	let since	= pro.parse8601(ns)
+
 	let myTradesNoLimit	= await pro.fetchMyTrades('ETH/USD', since)	//  no limit is specfied; 'since' works
 	let myTradesWithLimit	= await pro.fetchMyTrades('ETH/USD', since, 5)	// limit is specified; 'since' no longer works
 
