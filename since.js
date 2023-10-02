@@ -25,8 +25,8 @@ let sinceTest = async function() {
 	console.log(myTradesWithLimit[0].datetime)				// <-- Broken: returned my 5th-most recent transaction
 
 
-	// console.log(myTradesNoLimit.length)			// <-- 33 transactions since this date
-	// console.log(myTradesWithLimit.length)		// <--  5 transactions as expected
+	// console.log(myTradesNoLimit.length)						// <-- 33 transactions since this date
+	// console.log(myTradesWithLimit.length)					// <--  5 transactions as expected
 
 
 
